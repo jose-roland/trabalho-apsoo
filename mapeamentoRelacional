@@ -1,0 +1,19 @@
+CLASSIFICACAO(id, descricao)
+FILME(id, titulo, status, duracao, id_classificacao)
+SALA(num_sala, capacidade, status)
+EXIBICAO_SALA(id_filme, numero_sala)
+GENERO(id, nome)
+FILME_GENERO(id_filme, id_genero)
+
+PK(CLASSIFICACAO) = id
+PK(FILME) = id
+PK(SALA) = num_sala
+PK(EXIBICAO_SALA) = id_filme, num_sala
+PK(GENERO) = id
+PK(FILME_GENERO) = id_filme, id_genero
+
+FKid_classificacao(FILME) = PK(CLASSIFICACAO)
+FKid_filme(EXIBICAO_SALA) = PK(FILME)
+FKnum_sala(EXIBICAO_SALA) = PK(SALA)
+FKid_filme(FILME_GENERO) = PK(FILME)
+FKid_genero(FILME_GENERO) = PK(GENERO)
